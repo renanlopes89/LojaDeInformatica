@@ -55,7 +55,7 @@ public abstract class TelaDeCadastro extends JPanel{
 	
 	abstract void limparFormulario() throws SQLException;
 	abstract void Salvar() throws SQLException;
-	abstract void Calcelar() throws SQLException;
+	abstract void Cancelar() throws SQLException;
 	abstract void Alterar() throws SQLException;
 	abstract void Excluir() throws SQLException;
 	abstract void Listar() throws SQLException;

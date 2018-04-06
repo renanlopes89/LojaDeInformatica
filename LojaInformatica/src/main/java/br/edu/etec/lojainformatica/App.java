@@ -14,9 +14,9 @@ public class App extends JFrame{
 	private JMenu menu;
 	private JMenuItem menuItem;
 		
-	//TelaDeCadastro tlaCadCli = new TelaCadClientes();
-	//TelaDeCadastro tlaCadHard = new TelaCadDeHardware();
-	//TelaDeCadastro tlaCadVdas = new TelaCadDeVendas();
+	TelaDeCadastro tlaCadCli = new TelaCadClientes();
+	TelaDeCadastro tlaCadHard = new TelaCadDeHardware();
+	TelaDeCadastro tlaCadVdas = new TelaCadDeVendas();
 	
 	public App() {
 		this.setVisible(true);
@@ -36,10 +36,10 @@ public class App extends JFrame{
 		menuItemClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("menuClieActionPerformed...");
-				//App.this.tlaCadHard.setVisible(false);
-				//App.this.tlaCadVdas.setVisible(False);
-				//App.this.tlaCadCli.setVisible(true);
-				//App.this.getContentPane().add(App.this.tlaCadCli, BorderLayout.CENTER)
+				App.this.tlaCadHard.setVisible(false);
+				App.this.tlaCadVdas.setVisible(False);
+				App.this.tlaCadCli.setVisible(true);
+				App.this.getContentPane().add(App.this.tlaCadCli, BorderLayout.CENTER)
 				App.this.pack();
 			}
 		});
@@ -48,11 +48,11 @@ public class App extends JFrame{
 		JMenuItem menuItemHardware = new JMenuItem("Hardware");
 		menuItemHardware.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//App.this.tlaCadHard.setVisible(true);
-				//App.this.tlaCadVdas.setVisible(False);
-				//App.this.tlaCadCli.setVisible(false);
-				//App.this.getContentPane().add(App.this.tlaCadHard, BorderLayout.CENTER)
-				//App.this.pack();
+				App.this.tlaCadHard.setVisible(true);
+				App.this.tlaCadVdas.setVisible(False);
+				App.this.tlaCadCli.setVisible(false);
+				App.this.getContentPane().add(App.this.tlaCadHard, BorderLayout.CENTER)
+				App.this.pack();
 			}
 		});
 		menuCadastros.add(menuItemHardware);
@@ -60,10 +60,10 @@ public class App extends JFrame{
 		JMenuItem menuItemVenda = new JMenuItem("Vendas");
 		menuItemVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//App.this.tlaCadHard.setVisible(False);
-				//App.this.tlaCadVdas.setVisible(true);
-				//App.this.tlaCadCli.setVisible(false);
-				//App.this.getContentPane().add(App.this.tlaCadVdas, BorderLayout.CENTER)
+				App.this.tlaCadHard.setVisible(False);
+				App.this.tlaCadVdas.setVisible(true);
+				App.this.tlaCadCli.setVisible(false);
+				App.this.getContentPane().add(App.this.tlaCadVdas, BorderLayout.CENTER)
 				App.this.pack();
 			}
 		});
