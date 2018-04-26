@@ -79,7 +79,7 @@ public class TelaCadClientes extends TelaDeCadastro{
 			public void actionPerformed(ActionEvent e) {
 				try {
 					TelaCadClientes.this.Alterar();
-				} catch(SQLException e1) {
+				} catch(Exception e1) {
 					e1.printStackTrace();
 				}
 			}
@@ -123,16 +123,16 @@ public class TelaCadClientes extends TelaDeCadastro{
 		}
 		
 		try {
-			this.cliente.setNome(this,txtNome.getText());
-			this.cliente.setEndereco(this,txtEndereco.getText());
-			this.cliente.setFone(this,txtFone.getText());
-			this.cliente.setEmail(this,txtEmail.getText());
+			this.cliente.setNome(this.txtNome.getText());
+			this.cliente.setEndereco(this.txtEndereco.getText());
+			this.cliente.setFone(this.txtFone.getText());
+			this.cliente.setEmail(this.txtEmail.getText());
 			Connection connection = JdbcUtil.getConnection();
 			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(connection);
 			if(salvarOuAlterar.equals("salvar")) {
 				clienteJdbcDAO.salvar(this.cliente);
 			} else {
-				this.cliente.setId_cliente(this.cliente);
+				this.cliente.setId_cliente(idInt);
 				clienteJdbcDAO.alterar(this.cliente);
 			}
 		} catch (Exception e) {
@@ -153,6 +153,7 @@ public class TelaCadClientes extends TelaDeCadastro{
 			int idInt = Integer.parseInt(id);
 			Connection conn = JdbcUtil.getConnection();
 			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(conn);
+			Cliente cli = clienteJdbcDAO.findById(idInt);
 			if (cli != null) {
 				this.txtNome.setText(cli.getNome());
 				this.txtEndereco.setText(cli.getEndereco());
@@ -172,8 +173,8 @@ public class TelaCadClientes extends TelaDeCadastro{
 		try {
 			int idInt = Integer.parseInt(id);
 			Connection conn = JdbcUtil.getConnection();
-			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(conn)
-			ClienteJdbcDAO.excluir(idInt);
+			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(conn);
+			clienteJdbcDAO.Excluir(idInt);
 			this.limparFormulario();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -185,7 +186,7 @@ public class TelaCadClientes extends TelaDeCadastro{
 		Connection conn;
 		try {
 			conn = JdbcUtil.getConnection();
-			clienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(conn);
+			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(conn);
 			List<Cliente> list = clienteJdbcDAO.listar();
 			String[] strArr = new String[list.size()];
 			for(int i=0; i < list.size(); i++) {

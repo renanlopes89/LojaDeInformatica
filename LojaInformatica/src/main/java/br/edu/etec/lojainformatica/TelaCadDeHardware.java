@@ -58,7 +58,7 @@ public class TelaCadDeHardware  extends TelaDeCadastro {
 		this.btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					TelaCadDeHardware.this.salvar();
+					TelaCadDeHardware.this.Salvar();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -68,14 +68,14 @@ public class TelaCadDeHardware  extends TelaDeCadastro {
 
 		this.btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadDeHardware.this.cancelar();
+				TelaCadDeHardware.this.Cancelar();
 			}
 		});
 
 		this.btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					TelaCadDeHardware.this.alterar();
+					TelaCadDeHardware.this.Alterar();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -87,8 +87,8 @@ public class TelaCadDeHardware  extends TelaDeCadastro {
 
 			public void actionPerformed(ActionEvent e) {
 				try {
-					TelaCadDeHardware.this.listar();
-				} catch (SQLException e1) {
+					TelaCadDeHardware.this.Listar();
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
