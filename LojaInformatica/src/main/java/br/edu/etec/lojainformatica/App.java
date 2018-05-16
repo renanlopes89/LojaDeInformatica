@@ -9,6 +9,12 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import org.hibernate.Session;
+
+import br.edu.etec.lojainformatica.model.Cliente;
+import br.edu.etec.lojainformatica.persistence.ClienteHibernateDAO;
+import br.edu.etec.lojainformatica.persistence.Hibernateutil;
+
 public class App extends JFrame{
 	private JMenuBar menuBar;
 	private JMenu menu;
@@ -24,11 +30,11 @@ public class App extends JFrame{
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		configuraMenu();
+		//configuraMenu();
 		this.pack();
 	}
 	
-	private void configuraMenu() {
+	/*private void configuraMenu() {
 		this.menuBar = new JMenuBar();
 		JMenu menuCadastros = new JMenu("Cadastros");
 		
@@ -72,9 +78,23 @@ public class App extends JFrame{
 		this.menuBar.add(menuCadastros);
 		this.getContentPane().add(menuBar, BorderLayout.NORTH);
 		
-	}
+	}*/
 	
 	public static void main( String[] args){
-		App app = new App();
+		//App app = new App();
+		
+		Cliente c1 = new Cliente();
+		
+		c1.setNome("renan");
+		c1.setNome("End do Renan");
+		c1.setFone("renan");
+		c1.setEmail("j.r.a.l@hotmail.com");
+		c1.setFone("renan");
+		
+		Session session = Hibernateutil.getSessionFactory().openSession();
+		ClienteHibernateDAO<Cliente> clienteDao = new ClienteHibernateDAO<Cliente>(session);
+		clienteDao.persistir(c1);
+		clienteDao.commit();
+		clienteDao.closeSession();
 	}
 }

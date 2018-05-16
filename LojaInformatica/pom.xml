@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<version.hibernate>5.2.2.Final</version.hibernate>
+	<version.hibernate-jpa-2.1-api>1.0.0.Final</version.hibernate-jpa-2.1-api>
   </properties>
 
   <dependencies>
@@ -21,5 +23,41 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+	
+	<!-- JPA 2.1 COM Hibernate 5 -->
+	<!-- Hibernate -->
+	<!-- Hibernate Core -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${version.hibernate}</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+	<!--
+	<dependency>
+		<groupId>javax.persistence</groupId>
+		<artifactId>persistence-api</artifactId>
+		<version>${version.persistence-api}</version>
+	</dependency>
+	-->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${version.hibernate}</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>${version.hibernate-jpa-2.1-api}</version>
+	</dependency>
+	<!-- c3p0 -->
+	<dependency>
+		<groupId>com.mchange</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.5.2</version>
+	</dependency>
+	
   </dependencies>
 </project>

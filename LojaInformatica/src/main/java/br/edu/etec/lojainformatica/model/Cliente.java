@@ -1,11 +1,25 @@
 package br.edu.etec.lojainformatica.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_cliente;
 	private String nome;
 	private String endereco;
 	private String fone;
 	private String email;
+	
+	public Integer getId_cliente() {
+		return id_cliente;
+	}
+	public void setId_cliente(Integer id_cliente) {
+		this.id_cliente = id_cliente;
+	}
 	
 	public String getNome() {
 		return nome;
@@ -33,12 +47,5 @@ public class Cliente {
 	}
 	public void setEmail (String email) {
 		this.email = email;
-	}
-	
-	public Integer getId_cliente() {
-		return id_cliente;
-	}
-	public void setId_cliente(Integer id_cliente) {
-		this.id_cliente = id_cliente;
 	}
 }
