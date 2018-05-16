@@ -38,7 +38,7 @@ public class Cliente {
 	public String getFone() {
 		return fone;
 	}
-	public void setFone (String Fone) {
+	public void setFone (String fone) {
 		this.fone = fone;
 	}
 	

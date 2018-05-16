@@ -85,11 +85,10 @@ public class App extends JFrame{
 		
 		Cliente c1 = new Cliente();
 		
-		c1.setNome("renan");
-		c1.setNome("End do Renan");
-		c1.setFone("renan");
-		c1.setEmail("j.r.a.l@hotmail.com");
-		c1.setFone("renan");
+		c1.setNome("cozinheiro");
+		c1.setEndereco("End do cozinheiro");
+		c1.setFone("11-981300452");
+		c1.setEmail("cozinheiro@hotmail.com");
 		
 		Session session = Hibernateutil.getSessionFactory().openSession();
 		ClienteHibernateDAO<Cliente> clienteDao = new ClienteHibernateDAO<Cliente>(session);
