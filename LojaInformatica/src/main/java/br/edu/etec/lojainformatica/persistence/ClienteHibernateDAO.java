@@ -1,6 +1,8 @@
 package br.edu.etec.lojainformatica.persistence;
 
 import java.util.List;
+//import java.util.logging.Logger;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;

@@ -13,8 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import org.hibernate.Session;
+
 import br.edu.etec.lojainformatica.model.Cliente;
+import br.edu.etec.lojainformatica.persistence.ClienteHibernateDAO;
 import br.edu.etec.lojainformatica.persistence.ClienteJdbcDAO;
+import br.edu.etec.lojainformatica.persistence.Hibernateutil;
 import br.edu.etec.lojainformatica.persistence.JdbcUtil;
 
 public class TelaCadClientes extends TelaDeCadastro{
@@ -123,17 +127,29 @@ public class TelaCadClientes extends TelaDeCadastro{
 		}
 		
 		try {
-			this.cliente.setNome(this.txtNome.getText());
+			/*this.cliente.setNome(this.txtNome.getText());
 			this.cliente.setEndereco(this.txtEndereco.getText());
 			this.cliente.setFone(this.txtFone.getText());
 			this.cliente.setEmail(this.txtEmail.getText());
 			Connection connection = JdbcUtil.getConnection();
-			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(connection);
+			ClienteJdbcDAO clienteJdbcDAO = new ClienteJdbcDAO(connection);*/
+			Cliente c1 = new Cliente();
+			c1.setNome(txtNome.getText());
+			c1.setEndereco(txtEndereco.getText());
+			c1.setFone(txtFone.getText());
+			c1.setEmail(txtEmail.getText());
+			
+			
 			if(salvarOuAlterar.equals("salvar")) {
-				clienteJdbcDAO.salvar(this.cliente);
+				//clienteJdbcDAO.salvar(this.cliente);
+				Session session = Hibernateutil.getSessionFactory().openSession();
+				ClienteHibernateDAO<Cliente> clienteDao = new ClienteHibernateDAO<Cliente>(session);
+				clienteDao.persistir(c1);
+				clienteDao.commit();
+				clienteDao.closeSession();
 			} else {
 				this.cliente.setId_cliente(idInt);
-				clienteJdbcDAO.alterar(this.cliente);
+				//clienteJdbcDAO.alterar(this.cliente);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
