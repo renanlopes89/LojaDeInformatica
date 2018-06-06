@@ -145,6 +145,7 @@ public class TelaCadClientes extends TelaDeCadastro{
 				Session session = Hibernateutil.getSessionFactory().openSession();
 				ClienteHibernateDAO<Cliente> clienteDao = new ClienteHibernateDAO<Cliente>(session);
 				clienteDao.persistir(c1);
+				clienteDao.beginTransaction();
 				clienteDao.commit();
 				clienteDao.closeSession();
 			} else {
@@ -214,6 +215,5 @@ public class TelaCadClientes extends TelaDeCadastro{
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-	}
-	
+	}	
 }

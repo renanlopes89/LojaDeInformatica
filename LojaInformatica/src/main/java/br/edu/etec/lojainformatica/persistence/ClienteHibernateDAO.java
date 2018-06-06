@@ -75,15 +75,12 @@ public class ClienteHibernateDAO<T> implements IDAO<T>{
 	public void closeSession() {
 		this.session.close();
 	}
+	
 	public void beginTransaction() {
 		this.currentTransaction = this.session.beginTransaction();
 	}
+	
 	public void commit() {
 		this.currentTransaction.commit();
-	}
-
-	public void alterar(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	}	
 }
